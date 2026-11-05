@@ -1,100 +1,157 @@
 /*
 =======================================
-        Variables and Data Types
+        Variable and Data Types
 =======================================
 */
 
-/*
-A variable is a named memory location used to store a value.
-
-Rules for naming variables:
-1. A name can contain letters, digits and underscores (_).
-2. It must start with a letter or underscore, not a digit.
-3. Spaces are not allowed.
-4. C keywords cannot be used as variable names.
-5. Variable names are case-sensitive.
+/* 
+A name which is given to a memory loaction.
+It can contain alphabet , digits and underscore(_).
+A varible can start with an aplhabet and underscore only.
+Can't start with a digit.
+No whitespace is allowed
+No use of reserved keywords and special characters
 */
+
 
 /*
 1. WHAT ARE DATA TYPES?
 
-   Data types specify what kind of value a variable can
-   store. They also determine the memory representation
-   and range of values.
+   Data types specify what type of value a variable
+   can store and how much memory it occupies.
+
 
 2. BASIC DATA TYPES
 
-   Data Type       Typical Size       Example
    ------------------------------------------------
-   char            1 byte             'A'
-   int             often 4 bytes      100
-   float           often 4 bytes      10.5f
-   double          often 8 bytes      25.678
-   void            no value           -
+   Data Type       Memory Size       Example
+   ------------------------------------------------
+   char            1 byte            'A'
+   int             4 bytes           100
+   float           4 bytes           10.5f
+   double          8 bytes           25.678
+   void            No storage        No value
    ------------------------------------------------
 
-   NOTE: Sizes other than char can vary by compiler
-   and platform. Use sizeof() to check them.
+   NOTE: These are typical sizes on modern systems.
+   Actual sizes can depend on the compiler and platform.
+
 
 3. INTEGER DATA TYPES
 
-   short int, int, long int and long long int store
-   whole numbers. Their sizes and ranges depend on
-   the implementation, subject to C's minimum limits.
+   Integer data types store whole numbers.
+
+   ------------------------------------------------
+   Data Type              Typical Size
+   ------------------------------------------------
+   short int              2 bytes
+   int                    4 bytes
+   long int               4 or 8 bytes
+   long long int          8 bytes
+   ------------------------------------------------
+
 
 4. UNSIGNED DATA TYPES
 
-   Unsigned integer types store zero and positive values.
-   Examples:
-   unsigned char
-   unsigned int
-   unsigned long int
-   unsigned long long int
+   Unsigned data types store only zero and positive
+   numbers.
+
+   ------------------------------------------------
+   Data Type              Typical Size
+   ------------------------------------------------
+   unsigned char          1 byte
+   unsigned short int     2 bytes
+   unsigned int           4 bytes
+   unsigned long int      4 or 8 bytes
+   unsigned long long     8 bytes
+   ------------------------------------------------
+
 
 5. FLOATING-POINT DATA TYPES
 
-   float       - usually about 6-7 significant digits
-   double      - usually about 15-16 significant digits
-   long double - precision depends on the system
+   These data types store decimal numbers.
+
+   ------------------------------------------------
+   Data Type              Typical Size
+   ------------------------------------------------
+   float                  4 bytes
+   double                 8 bytes
+   long double            8 to 16 bytes
+   ------------------------------------------------
+
+   float:
+   Stores approximately 6-7 significant decimal digits.
+
+   double:
+   Stores approximately 15-16 significant decimal digits.
+
+   long double:
+   Provides extended precision, depending on the system.
+
 
 6. CHARACTER DATA TYPE
 
-   char stores one character.
+   The char data type stores a single character.
 
    Examples:
+
    char grade = 'A';
    char letter = 'B';
    char symbol = '#';
 
-   A char occupies exactly 1 byte in C.
+   Memory occupied by char = 1 byte.
+
+   A char can be signed or unsigned depending on
+   the compiler.
+
 
 7. MEMORY CONVERSION
 
    1 Byte = 8 Bits
-   1 KB   = 1024 Bytes (in the common binary convention)
+   1 KB   = 1024 Bytes
    1 MB   = 1024 KB
    1 GB   = 1024 MB
 
-8. sizeof() OPERATOR
+   Example:
 
-   sizeof() gives the size, in bytes, of a type or object.
-   Its result has type size_t, so use %zu with printf().
+   An integer generally occupies 4 bytes.
 
-9. IMPORTANT POINTS
+   4 x 8 = 32 bits
+
+
+8. IMPORTANT C OPERATOR - sizeof()
+
+   The sizeof() operator is used to find the memory
+   occupied by a data type or variable.
+
+   Example:
+
+   sizeof(char)   = 1 byte
+   sizeof(int)    = 4 bytes
+   sizeof(float)  = 4 bytes
+   sizeof(double) = 8 bytes
+
+   NOTE:
+   sizeof() returns the size in bytes.
+   Use %zu to print its result.
+
+
+9. IMPORTANT POINTS TO REMEMBER
 
    1. char always occupies exactly 1 byte.
-   2. Other type sizes can vary by system.
-   3. sizeof() checks the actual size on your system.
-   4. Use the correct printf format specifier.
+   2. int generally occupies 4 bytes.
+   3. float generally occupies 4 bytes.
+   4. double generally occupies 8 bytes.
+   5. sizeof() checks memory size.
+   6. Actual sizes may vary by compiler and platform.
+
 */
 
 #include <stdio.h>
-
-int main(void) {
-    printf("Size of char: %zu byte(s)\n", sizeof(char));
-    printf("Size of int: %zu byte(s)\n", sizeof(int));
-    printf("Size of float: %zu byte(s)\n", sizeof(float));
-    printf("Size of double: %zu byte(s)\n", sizeof(double));
-
+int main(){
+    printf("%lu",sizeof(int));
+    printf("\n%lu",sizeof(float));
     return 0;
 }
+
+
