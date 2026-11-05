@@ -1,189 +1,158 @@
 /*
 =======================================
-        Operators
+              OPERATORS IN C
 =======================================
+
+An operator is a symbol that performs an operation
+on one or more operands.
+
+Main types of operators:
+1. Arithmetic
+2. Relational
+3. Logical
+4. Bitwise
+5. Assignment
+6. Conditional (ternary)
+7. Other operators, such as sizeof()
 */
 
 /*
-An operator is a symbol that performs an operations on one or more operands.
-types of operators :
-1.) Arithemetic Operators
-2.) Relational Operators
-3.)Logical Operators
-4.)Bitwise Operators
-5.)Assignment Operators
-6.)Miscellaneous Operators
+ARITHMETIC OPERATORS
++   Addition
+-   Subtraction
+*   Multiplication
+/   Division
+%   Remainder (integers)
+
+LOGICAL OPERATORS
+&&  AND: true when both conditions are true.
+||  OR : true when at least one condition is true.
+!   NOT: reverses the truth value.
+
+BITWISE OPERATORS
+&   Bitwise AND
+|   Bitwise OR
+^   Bitwise XOR
+~   Bitwise NOT
+<<  Left shift
+>>  Right shift
 */
 
-
-// calculator program using arithmetic operators
-
-/*
+// Bitwise operators example
 #include <stdio.h>
-int main(){
-    float a,b;
-    printf("Enter two numbers:");
-    scanf(" %f %f", &a , &b );
-    printf("\nSum of %f and %f is %f", a , b , a+b );
-    printf("\nDifference of %f and %f is %f", a , b , a-b );
-    printf("\nMultiplication of %f and %f is %f", a , b , a*b );
-    printf("\nDivision of %f and %f is %f", a , b , a/b );
-}
-*/
 
+int main(void) {
+    int a, b;
 
-/*
-Logical Operators
-A && B (AND): Returns true when both A and B are TRUE.
-A || B (OR): Returns True when eiter A or B is True.
-!A (NOT): Returns True when A is False and vice versa.
-*/
+    printf("Enter two integers: ");
 
-/*
-#include <stdio.h>
-int main(){
-    int a,b;
-    printf("Enter two numbers:");
-    scanf(" %d %d", &a , &b );
-    printf("\n %d And %d is %d", a , b , a&&b );
-    printf("\n %d || %d is %d", a , b , a||b );
-    printf("\nNOT %d is %d", a , !a );
-    return 0;
-}
-*/
+    if (scanf("%d %d", &a, &b) != 2) {
+        printf("Invalid input.\n");
+        return 1;
+    }
 
-// Bitwise Operators
+    printf("\n%d AND %d = %d", a, b, a & b);
+    printf("\n%d OR %d = %d", a, b, a | b);
+    printf("\n%d XOR %d = %d\n", a, b, a ^ b);
 
-#include <stdio.h>
-int main(){
-    int a,b;
-    printf("Enter two numbers:");
-    scanf(" %d %d", &a , &b );
-    printf("\n %d And %d is %d", a , b , a&b );
-    printf("\n %d OR %d is %d", a , b , a|b );
-    printf("\n %d XOR %d is %d", a , b , a^b );//a^b means a xor b means 
     return 0;
 }
 
 /*
 ============================================================
-              C PROGRAMMING - OPERATOR PRECEDENCE
+              C OPERATOR PRECEDENCE
 ============================================================
 
-DEFINITION:
-Operator precedence determines the order in which operators
-are evaluated in an expression.
+Precedence decides which operator is grouped first.
+Associativity decides grouping when operators have the
+same precedence. It does NOT necessarily decide the
+actual order in which every expression is evaluated.
 
-Associativity determines the direction of evaluation when
-operators have the same precedence.
-
+HIGHER PRECEDENCE
 ------------------------------------------------------------
-PRIORITY | OPERATORS       | DESCRIPTION
+Level  Operators                 Description
 ------------------------------------------------------------
+1      () [] -> .                Postfix: call, index, member
+       x++ x--                   Postfix increment/decrement
 
-1.       | () [] -> .      | Function call, Array, Structure
-         |                 | access
+2      ++x --x                   Prefix increment/decrement
+       + - ! ~                   Unary operators
+       * &                       Dereference / address-of
+       sizeof                    Size operator
+       (type)                    Type cast
 
-2.       | ++ --           | Increment / Decrement
-         | ! ~             | Logical NOT / Bitwise NOT
-         | + -             | Unary Plus / Unary Minus
-         | * &             | Dereference / Address of
-         | sizeof          | Size of operator
-         | (type)          | Type Casting
+3      * / %                     Multiplication, division,
+                                  remainder
 
-3.       | * / %           | Multiplication, Division,
-         |                 | Modulus
+4      + -                       Addition, subtraction
 
-4.       | + -             | Addition, Subtraction
+5      << >>                     Bitwise shifts
 
-5.       | << >>           | Left Shift, Right Shift
+6      < <= > >=                 Relational operators
 
-6.       | < <= > >=       | Relational Operators
+7      == !=                     Equality operators
 
-7.       | == !=           | Equality Operators
+8      &                         Bitwise AND
 
-8.       | &               | Bitwise AND
+9      ^                         Bitwise XOR
 
-9.       | ^               | Bitwise XOR
+10     |                         Bitwise OR
 
-10.      | |               | Bitwise OR
+11     &&                        Logical AND
 
-11.      | &&              | Logical AND
+12     ||                        Logical OR
 
-12.      | ||              | Logical OR
+13     ?:                        Conditional operator
 
-13.      | ?:              | Conditional / Ternary Operator
+14     = += -= *= /= %=           Assignment operators
+       <<= >>= &= ^= |=
 
-14.      | = += -= *=      | Assignment Operators
-         | /= %= <<=       |
-         | >>= &= ^= |=    |
-
-15.      | ,               | Comma Operator
-
+15     ,                         Comma operator
 ------------------------------------------------------------
-             OPERATOR ASSOCIATIVITY
+LOWER PRECEDENCE
+
+ASSOCIATIVITY
 ------------------------------------------------------------
+Left to right:
+Most binary operators, for example +, -, *, /, %, <,
+==, &, ^, |, && and ||.
 
-LEFT TO RIGHT:
-Most binary operators, including:
-+, -, *, /, %, <, >, ==, !=, &&, ||
+Right to left:
+Unary operators, conditional operator (?:), and
+assignment operators.
 
-RIGHT TO LEFT:
-Unary operators, assignment operators and conditional
-operator (?:).
+Postfix operators group left to right.
 
-------------------------------------------------------------
-                 IMPORTANT EXAMPLES
+IMPORTANT EXAMPLES
 ------------------------------------------------------------
 
-EXAMPLE 1:
-
+Example 1:
 int result = 10 + 5 * 2;
 
-Step 1: 5 * 2 = 10
-Step 2: 10 + 10 = 20
+5 * 2 is grouped first.
+Result = 10 + 10 = 20.
 
-Answer = 20
-
-EXAMPLE 2:
-
+Example 2:
 int result = (10 + 5) * 2;
 
-Step 1: 10 + 5 = 15
-Step 2: 15 * 2 = 30
+Parentheses group 10 + 5 first.
+Result = 15 * 2 = 30.
 
-Answer = 30
-
-EXAMPLE 3:
-
+Example 3:
 int a = 10, b = 20, c;
-
 c = a + b;
 
-Answer = 30
+c becomes 30.
 
+IMPORTANT POINTS
 ------------------------------------------------------------
-IMPORTANT POINTS TO REMEMBER
-------------------------------------------------------------
-
-1. Parentheses have the highest precedence among these
-   operators.
-
-2. Multiplication and division have higher precedence
-   than addition and subtraction.
-
+1. Parentheses can make expressions clearer.
+2. Multiplication, division and remainder have higher
+   precedence than addition and subtraction.
 3. Relational operators have higher precedence than
    logical AND and logical OR.
-
-4. Logical AND (&&) has higher precedence than
-   Logical OR (||).
-
+4. Logical AND (&&) has higher precedence than OR (||).
 5. Assignment operators have low precedence.
-
-6. Comma operator has the lowest precedence.
-
-7. Use parentheses to make complex expressions easier
-   to understand.
-
+6. The comma operator has the lowest precedence here.
+7. Use parentheses when an expression is complicated.
 */
-
