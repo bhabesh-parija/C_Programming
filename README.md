@@ -58,3 +58,9 @@ This repository is a work in progress. I'll keep adding programs, exercises, and
 ---
 
 *Learning step by step, one program at a time.*
+
+## 💡 Daily Motivation
+
+> "Consistency is the key. Every line of code you write today builds the programmer you become tomorrow."
+
+**Keep Learning | Keep Coding | Keep Growing 🚀**
